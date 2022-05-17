@@ -52,6 +52,24 @@ basic.forever(function () {
                 `)
         }
     } else {
-        basic.showIcon(IconNames.Yes)
+        if (input.acceleration(Dimension.X) < -200) {
+            basic.showLeds(`
+                . . # . .
+                . # . . .
+                # # # # #
+                . # . . .
+                . . # . .
+                `)
+        } else if (input.acceleration(Dimension.X) > 200) {
+            basic.showLeds(`
+                . . # . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . # . .
+                `)
+        } else {
+            basic.showIcon(IconNames.Yes)
+        }
     }
 })
